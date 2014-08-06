@@ -1,0 +1,21 @@
+<h1>Listado de Post</h1>
+    <%= link_to 'Nuevo Post', new_post_path %>
+
+    <% @posts.each do |post| %>
+
+    <hr>
+
+    <div class="posts col-md-12">
+      <h2><%= post.titulo %></h2>
+      <h3>Elaborado por: <small> <%= post.nombre %></small></h3>
+      <p><%= post.contenido %></p>
+      <br>
+      <p>Fecha de Actualización: <%= post.updated_at %></p>
+      <p>Fecha de Creación: <%= post.created_at %></p>
+      <br>
+      <p><%= link_to 'Ver', post %> - <%= link_to 'Editar', edit_post_path(post) %> - <%= link_to 'Eliminar', post, method: :delete, data: { confirm: 'Estás seguro?' } %></p>
+    </div>
+
+    <% end %>
+
+    <br>
